@@ -3,13 +3,13 @@ from os import path, listdir
 from functools import partial
 from itertools import imap, ifilter
 from ast import parse
-from pip import __file__ as pip_loc
+from distutils.sysconfig import get_python_lib
 
 if __name__ == '__main__':
     package_name = 'offregister_web_servers'
 
     f_for = partial(path.join, path.dirname(__file__), package_name)
-    d_for = partial(path.join, path.dirname(path.dirname(pip_loc)), package_name)
+    d_for = partial(path.join, get_python_lib(), package_name)
 
     nginx_data = partial(path.join, f_for('nginx', 'data'))
     nginx_install_dir = partial(path.join, d_for('nginx', 'data'))
