@@ -1,5 +1,6 @@
 from os import path
-from fabric.api import sudo, put
+
+from fabric.api import put, sudo
 from fabric.contrib.files import upload_template
 from offregister_fab_utils.apt import apt_depends
 
